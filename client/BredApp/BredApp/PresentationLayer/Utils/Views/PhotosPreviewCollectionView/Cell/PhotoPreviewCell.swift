@@ -20,6 +20,7 @@ class PhotoPreviewCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -49,6 +50,7 @@ class PhotoPreviewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addDashedBorder()
         constructHierarchy()
         activateConstraints()
     }
@@ -76,6 +78,17 @@ class PhotoPreviewCell: UICollectionViewCell {
         activateConstraintsBottomView()
         activateConstraintsImageSizeLabel()
         activateConstraintsRemovePhotoButton()
+    }
+    
+    private func addDashedBorder() {
+        let dashedBorder = CAShapeLayer()
+        dashedBorder.strokeColor = UIColor.black.cgColor
+        dashedBorder.lineDashPattern = [4, 2]
+        dashedBorder.frame = bounds
+        dashedBorder.fillColor = nil
+        dashedBorder.path = UIBezierPath(rect: bounds).cgPath
+        dashedBorder.lineWidth = 0.3
+        layer.addSublayer(dashedBorder)
     }
 }
 
