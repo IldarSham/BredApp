@@ -44,14 +44,23 @@ struct MessagesController: RouteCollection {
         }
         
         try await message.$repliesTo.load(on: req.db)
+        
+        for repliesTo in message.repliesTo {
+            try await repliesTo.$user.load(on: req.db)
+        }
+        
         try await message.$repliesBy.load(on: req.db)
+        
         try await message.$photo.load(on: req.db)
         try await message.$user.load(on: req.db)
         
         return try message.asPublic()
     }
     
-    private func attachRepliesToMessage(_ message: Message, on req: Request) async throws {
+    private func attachRepliesToMessage(
+        _ message: Message,
+        on req: Request
+    ) async throws {
         let messagesIds = parseMessagesIdsFromContent(message.content)
 
         let threadId = message.$thread.id
@@ -62,6 +71,7 @@ struct MessagesController: RouteCollection {
                     $0.filter(\.$id == messageId)
                     $0.filter(\.$thread.$id == threadId)
                 })
+                .with(\.$user)
                 .first()
             else {
                 continue

@@ -54,8 +54,12 @@ struct ThreadsController: RouteCollection {
         guard let thread = try await Thread.query(on: req.db)
             .filter(\.$id == threadId)
             .with(\.$messages, {
-                $0.with(\.$repliesTo)
-                $0.with(\.$repliesBy)
+                $0.with(\.$repliesTo) {
+                    $0.with(\.$user)
+                }
+                $0.with(\.$repliesBy) {
+                    $0.with(\.$user)
+                }
                 $0.with(\.$photo)
                 $0.with(\.$user)
             })

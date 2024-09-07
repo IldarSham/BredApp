@@ -15,8 +15,8 @@ final class Message: Model {
         let messageId: Message.IDValue
         let createdAt: Int?
         let content: String
-        let repliesToIds: [Message.IDValue]?
-        let repliesByIds: [Message.IDValue]?
+        let repliesTo: [RepliedMessage]?
+        let repliesBy: [RepliedMessage]?
         let photo: [PhotoFile.Public]?
         let from: User.Public
     }
@@ -58,12 +58,14 @@ final class Message: Model {
 extension Message {
     
     func asPublic() throws -> Message.Public {
-        try Message.Public(messageId: self.requireID(),
-                           createdAt: self.createdAt != nil ? Int(self.createdAt!.timeIntervalSince1970) : nil,
-                           content: self.content,
-                           repliesToIds: self.repliesTo.isEmpty ? nil : self.repliesTo.map { try $0.requireID() }, 
-                           repliesByIds: self.repliesBy.isEmpty ? nil : self.repliesBy.map { try $0.requireID() },
-                           photo: self.photo.isEmpty ? nil : self.photo.map { $0.asPublic() },
-                           from: self.user.asPublic())
+        try Message.Public(
+            messageId: self.requireID(),
+            createdAt: self.createdAt != nil ? Int(self.createdAt!.timeIntervalSince1970) : nil,
+            content: self.content,
+            repliesTo: self.repliesTo.isEmpty ? nil : self.repliesTo.map { try RepliedMessage.createFrom(message: $0) },
+            repliesBy: self.repliesBy.isEmpty ? nil : self.repliesBy.map { try RepliedMessage.createFrom(message: $0) },
+            photo: self.photo.isEmpty ? nil : self.photo.map { $0.asPublic() },
+            from: self.user.asPublic()
+        )
     }
 }

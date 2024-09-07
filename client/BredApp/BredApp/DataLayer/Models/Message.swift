@@ -11,8 +11,9 @@ struct Message: Decodable {
     let messageId: Int
     let createdAt: Int?
     let content: String
-    let repliesToIds: [Int]?
-    let repliesByIds: [Int]?
+    let repliesTo: [RepliedMessage]?
+    let repliesBy: [RepliedMessage]?
     let photo: [PhotoFile]?
     let from: User
 }
+

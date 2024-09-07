@@ -177,6 +177,7 @@ extension SignedInDependencyContainer: ThreadViewControllerFactory {
     
     func makeThreadViewController(threadId: Int, delegate: ThreadFlowDelegate) -> ThreadViewController {
         let viewModel = ThreadViewModel(threadId: threadId,
+                                        userSession: userSession,
                                         delegate: delegate,
                                         loadThreadByIdUseCaseFactory: self)
         return ThreadViewController(viewModel: viewModel, createThreadViewControllerFactory: self)

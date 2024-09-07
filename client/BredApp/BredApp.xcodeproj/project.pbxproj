@@ -104,6 +104,8 @@
 		74911B6A2B64226000C21737 /* UseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74911B692B64226000C21737 /* UseCase.swift */; };
 		7495156F2B42C182006AE192 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7495156E2B42C182006AE192 /* StartViewController.swift */; };
 		749515712B42C1A2006AE192 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749515702B42C1A2006AE192 /* StartViewModel.swift */; };
+		749A33422C8AFBC800D19950 /* RepliedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749A33412C8AFBC800D19950 /* RepliedMessage.swift */; };
+		749A33442C8B253B00D19950 /* LeftDashedBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749A33432C8B253B00D19950 /* LeftDashedBorderView.swift */; };
 		749B75862BB0F7BD00B6B67A /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749B75852BB0F7BD00B6B67A /* SettingsCoordinator.swift */; };
 		749CD6B22BBAA5FF00DF6A19 /* BaseCreateMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CD6B12BBAA5FF00DF6A19 /* BaseCreateMessageViewModel.swift */; };
 		749CD6B42BBAD95700DF6A19 /* BaseCreateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749CD6B32BBAD95700DF6A19 /* BaseCreateMessageViewController.swift */; };
@@ -249,6 +251,8 @@
 		74911B692B64226000C21737 /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
 		7495156E2B42C182006AE192 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		749515702B42C1A2006AE192 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		749A33412C8AFBC800D19950 /* RepliedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepliedMessage.swift; sourceTree = "<group>"; };
+		749A33432C8B253B00D19950 /* LeftDashedBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftDashedBorderView.swift; sourceTree = "<group>"; };
 		749B75852BB0F7BD00B6B67A /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		749CD6B12BBAA5FF00DF6A19 /* BaseCreateMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCreateMessageViewModel.swift; sourceTree = "<group>"; };
 		749CD6B32BBAD95700DF6A19 /* BaseCreateMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCreateMessageViewController.swift; sourceTree = "<group>"; };
@@ -590,6 +594,7 @@
 				74AD700C2B80FB7D00064056 /* PhotoFile.swift */,
 				74D28D402B8BB53F0047EF7C /* ThreadPreview.swift */,
 				74D28D442B8BC3050047EF7C /* Page.swift */,
+				749A33412C8AFBC800D19950 /* RepliedMessage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				741250F52BA47D1600A27595 /* PhotoCollectionView */,
 				741250FA2BA4F7DC00A27595 /* RepliesMessagesCollectionView */,
 				741250F62BA4ACCC00A27595 /* CustomTextView.swift */,
+				749A33432C8B253B00D19950 /* LeftDashedBorderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1070,6 +1076,7 @@
 				74D2426E2B9ABD7000C12EB2 /* CreateMessageUseCase.swift in Sources */,
 				74A67CB52B6C881A005F4520 /* HTTPMethod.swift in Sources */,
 				74D28D412B8BB53F0047EF7C /* ThreadPreview.swift in Sources */,
+				749A33442C8B253B00D19950 /* LeftDashedBorderView.swift in Sources */,
 				74441D882B8A2186001DC12B /* MimeTypes.swift in Sources */,
 				741C867A2B6EF46E0088743D /* SignOutUseCase.swift in Sources */,
 				74EB13D22B94261700BE41C1 /* ThreadViewModel.swift in Sources */,
@@ -1110,6 +1117,7 @@
 				74F2C38A2BA317FE008ACB16 /* AlignedFlowLayout.swift in Sources */,
 				74FB723B2B96D9B800D662BD /* CreateMessageCell.swift in Sources */,
 				74FA2F3B2B6D4D5B0027FC81 /* SignUpRequest.swift in Sources */,
+				749A33422C8AFBC800D19950 /* RepliedMessage.swift in Sources */,
 				74441D8B2B8A30BF001DC12B /* ThreadViewController.swift in Sources */,
 				749515712B42C1A2006AE192 /* StartViewModel.swift in Sources */,
 				74A4D9612B75C8F200D99BC2 /* TitleTextField.swift in Sources */,

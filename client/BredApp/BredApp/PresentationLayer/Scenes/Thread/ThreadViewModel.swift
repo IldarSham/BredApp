@@ -22,11 +22,12 @@ class ThreadViewModel {
     private let delegate: ThreadFlowDelegate
     private let loadThreadByIdUseCaseFactory: LoadThreadByIdUseCaseFactory
     
+    private let userId: Int
     private let threadId: Int
-    private var thread: Thread?
-    
     private var lastSentMessageId: Int?
     
+    private var thread: Thread?
+        
     // Publishers
     var reloadData: AnyPublisher<Void, Never> {
         reloadDataSubject.eraseToAnyPublisher()
@@ -55,8 +56,14 @@ class ThreadViewModel {
     
     // MARK: - Initialization
     
-    init(threadId: Int, delegate: ThreadFlowDelegate, loadThreadByIdUseCaseFactory: LoadThreadByIdUseCaseFactory) {
+    init(
+        threadId: Int,
+        userSession: RemoteUserSession,
+        delegate: ThreadFlowDelegate,
+        loadThreadByIdUseCaseFactory: LoadThreadByIdUseCaseFactory
+    ) {
         self.threadId = threadId
+        self.userId = userSession.user.id
         self.delegate = delegate
         self.loadThreadByIdUseCaseFactory = loadThreadByIdUseCaseFactory
     }
@@ -112,6 +119,8 @@ class ThreadViewModel {
             return nil
         }
         return MessageCellModel(
+            isOwnMessage: message.from.id == userId, 
+            isReplyToYourMessage: message.repliesTo?.contains { $0.from.id == userId } ?? false,
             username: message.from.username,
             date: dateString(for: message.createdAt ?? 0),
             messageId: message.messageId,
@@ -120,7 +129,7 @@ class ThreadViewModel {
                 PhotoCellModel(photo: $0, sizeInKB: getSizeInKB(fileSize: $0.fileSize))
             },
             content: message.content,
-            repliesByIds: message.repliesByIds)
+            repliesByIds: message.repliesBy?.map { $0.messageId })
     }
     
     func didTapMessageIdButton(messageId: Int) {

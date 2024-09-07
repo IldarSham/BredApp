@@ -8,6 +8,8 @@
 import UIKit
 
 struct MessageCellModel {
+    let isOwnMessage: Bool
+    let isReplyToYourMessage: Bool
     let username: String
     let date: String
     let messageId: Int
@@ -30,13 +32,22 @@ class MessageCell: UITableViewCell {
         stackView.layer.cornerRadius = 3.0
         stackView.layoutMargins = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layer.masksToBounds = true
         return stackView
     }()
     
+    private lazy var leftBorderView: UIView = {
+        let leftBorder = UIView()
+        leftBorder.backgroundColor = UIColor.orange
+        return leftBorder
+    }()
+    
+    private lazy var leftDashedBorderView = LeftDashedBorderView(lineWidth: 4.5)
+
     private lazy var messageDetailsStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [usernameLabel, dateLabel, messageIdButton, messageNumberLabel])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 5
         stackView.distribution = .fill
         return stackView
     }()
@@ -72,24 +83,17 @@ class MessageCell: UITableViewCell {
         return label
     }()
     
-    private lazy var photoCollectionView: PhotoCollectionView = {
-        return PhotoCollectionView()
-    }()
+    private lazy var photoCollectionView = PhotoCollectionView()
     
-    private lazy var textView: CustomTextView = {
-        return CustomTextView()
-    }()
+    private lazy var textView = CustomTextView()
     
-    private lazy var repliesMessagesCollectionView: RepliesMessagesCollectionView = {
-        return RepliesMessagesCollectionView()
-    }()
-
+    private lazy var repliesMessagesCollectionView = RepliesMessagesCollectionView()
+    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
-        
         constructHierarchy()
         activateConstraints()
     }
@@ -102,20 +106,27 @@ class MessageCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        leftBorderView.removeFromSuperview()
+        leftDashedBorderView.removeFromSuperview()
         photoCollectionView.removeFromSuperview()
         textView.removeFromSuperview()
         repliesMessagesCollectionView.removeFromSuperview()
     }
-    
+
     func configure(
         with model: MessageCellModel,
         delegate: MessageCellDelegate,
         onTapMessageIdButton: @escaping () -> Void
     ) {
+        /// Set message appearance
         if model.messageNumber == 1 {
-            messageStackView.backgroundColor = .clear
+            setStyleForFirstMessage()
+        } else if model.isOwnMessage {
+            setStyleForOwnMessage()
+        } else if model.isReplyToYourMessage {
+            setStyleForReplyToYourMessage()
         } else {
-            messageStackView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+            setStyleForOtherMessage()
         }
 
         /// Configure message details
@@ -162,6 +173,62 @@ class MessageCell: UITableViewCell {
         contentView.addSubview(messageStackView)
     }
     
+    @objc
+    private func handleMessageIdButtonTap() {
+        didTapMessageIdButton?()
+    }
+}
+
+// MARK: - Appearance
+extension MessageCell {
+    
+    func setStyleForFirstMessage() {
+        messageStackView.backgroundColor = .clear
+    }
+    
+    func setStyleForOwnMessage() {
+        messageStackView.backgroundColor = #colorLiteral(red: 0.9485717416, green: 0.8699709773, blue: 0.8173323274, alpha: 1)
+        messageStackView.layoutMargins.left = 7.0
+        messageStackView.addSubview(leftBorderView)
+        activateConstraintsLeftBorderView()
+    }
+    
+    func setStyleForReplyToYourMessage() {
+        messageStackView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+        messageStackView.layoutMargins.left = 7.0
+        messageStackView.addSubview(leftDashedBorderView)
+        activateConstraintsLeftDashedBorderView()
+    }
+    
+    func setStyleForOtherMessage() {
+        messageStackView.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.8470588235, blue: 0.8470588235, alpha: 1)
+    }
+}
+
+// MARK: - Layout
+extension MessageCell {
+    
+    private func activateConstraintsLeftBorderView() {
+        leftBorderView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            leftBorderView.leadingAnchor.constraint(equalTo: messageStackView.leadingAnchor),
+            leftBorderView.widthAnchor.constraint(equalToConstant: 2),
+            leftBorderView.topAnchor.constraint(equalTo: messageStackView.topAnchor),
+            leftBorderView.bottomAnchor.constraint(equalTo: messageStackView.bottomAnchor),
+        ])
+    }
+    
+    private func activateConstraintsLeftDashedBorderView() {
+        leftDashedBorderView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            leftDashedBorderView.leadingAnchor.constraint(equalTo: messageStackView.leadingAnchor),
+            leftDashedBorderView.topAnchor.constraint(equalTo: messageStackView.topAnchor),
+            leftDashedBorderView.bottomAnchor.constraint(equalTo: messageStackView.bottomAnchor),
+        ])
+    }
+    
     private func activateConstraints() {
         messageStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -170,11 +237,6 @@ class MessageCell: UITableViewCell {
             messageStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3),
             messageStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -3),
         ])
-    }
-    
-    @objc
-    private func handleMessageIdButtonTap() {
-        didTapMessageIdButton?()
     }
 }
 
