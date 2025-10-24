@@ -38,13 +38,9 @@ class LoginRootView: NiblessView {
     }()
     
     private let usernameIcon: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "person.circle"))
-        imageView.widthAnchor
-            .constraint(equalToConstant: 40)
-            .isActive = true
-        imageView.heightAnchor
-            .constraint(equalToConstant: 40)
-            .isActive = true
+        let config = UIImage.SymbolConfiguration(pointSize: 36, weight: .thin)
+        let image = UIImage(systemName: "person.circle", withConfiguration: config)
+        let imageView = UIImageView(image: image)
         imageView.tintColor = .systemOrange
         return imageView
     }()
@@ -67,13 +63,9 @@ class LoginRootView: NiblessView {
     }()
     
     private let passwordIcon: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "lock.circle"))
-        imageView.widthAnchor
-            .constraint(equalToConstant: 40)
-            .isActive = true
-        imageView.heightAnchor
-            .constraint(equalToConstant: 40)
-            .isActive = true
+        let config = UIImage.SymbolConfiguration(pointSize: 36, weight: .thin)
+        let image = UIImage(systemName: "lock.circle", withConfiguration: config)
+        let imageView = UIImageView(image: image)
         imageView.tintColor = .systemOrange
         return imageView
     }()
