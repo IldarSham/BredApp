@@ -5,6 +5,7 @@
 //  Created by Ildar Shamsullin on 20.01.2024.
 //
 
+import Foundation
 import Fluent
 
 final class Token: Model {

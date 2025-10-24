@@ -129,7 +129,8 @@ class ThreadViewModel {
                 PhotoCellModel(photo: $0, sizeInKB: getSizeInKB(fileSize: $0.fileSize))
             },
             content: message.content,
-            repliesByIds: message.repliesBy?.map { $0.messageId })
+            repliesByIds: message.repliesBy?.map { $0.messageId }
+        )
     }
     
     func didTapMessageIdButton(messageId: Int) {

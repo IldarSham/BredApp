@@ -5,6 +5,7 @@
 //  Created by Ildar Shamsullin on 09.02.2024.
 //
 
+import Foundation
 import Fluent
 
 final class MessageReplyPivot: Model {

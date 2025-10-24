@@ -41,7 +41,7 @@ class SignUpUseCase: UseCaseAsync {
         
         let userSession = try await remoteAPI.signUp(account: newAccount)
         try dataStore.save(userSession: userSession)
-        
+
         return userSession
     }
     

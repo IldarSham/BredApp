@@ -71,7 +71,6 @@ struct MessagesController: RouteCollection {
                     $0.filter(\.$id == messageId)
                     $0.filter(\.$thread.$id == threadId)
                 })
-                .with(\.$user)
                 .first()
             else {
                 continue

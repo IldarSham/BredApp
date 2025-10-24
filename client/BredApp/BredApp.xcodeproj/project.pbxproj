@@ -115,6 +115,8 @@
 		74A67CB72B6C8845005F4520 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A67CB62B6C8845005F4520 /* RequestProtocol.swift */; };
 		74A67CB92B6C8870005F4520 /* RemoteAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A67CB82B6C8870005F4520 /* RemoteAPIManager.swift */; };
 		74A77D2D2BA1CA3F00B15862 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A77D2C2BA1CA3F00B15862 /* DynamicHeightCollectionView.swift */; };
+		74A77FA72EAB739D003ACBCE /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74A77FA52EAB739D003ACBCE /* PTSans-Bold.ttf */; };
+		74A77FA82EAB739D003ACBCE /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74A77FA62EAB739D003ACBCE /* PTSans-Regular.ttf */; };
 		74AD70092B80F9D600064056 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD70082B80F9D600064056 /* Thread.swift */; };
 		74AD700B2B80FA3300064056 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD700A2B80FA3300064056 /* Message.swift */; };
 		74AD700D2B80FB7D00064056 /* PhotoFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AD700C2B80FB7D00064056 /* PhotoFile.swift */; };
@@ -149,8 +151,6 @@
 		74EB13D62B94270F00BE41C1 /* ThreadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EB13D52B94270F00BE41C1 /* ThreadCoordinator.swift */; };
 		74EB13D82B942C3700BE41C1 /* LoadThreadByIdUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EB13D72B942C3700BE41C1 /* LoadThreadByIdUseCase.swift */; };
 		74EBDD4F2B71BDDF0036F9E5 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74EBDD4E2B71BDDF0036F9E5 /* ReuseIdentifiable.swift */; };
-		74EBDD562B71E0460036F9E5 /* PTSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74EBDD552B71E0460036F9E5 /* PTSans-Regular.ttf */; };
-		74EBDD582B71E04D0036F9E5 /* PTSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74EBDD572B71E04D0036F9E5 /* PTSans-Bold.ttf */; };
 		74F2C38A2BA317FE008ACB16 /* AlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F2C3892BA317FE008ACB16 /* AlignedFlowLayout.swift */; };
 		74FA2F3B2B6D4D5B0027FC81 /* SignUpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FA2F3A2B6D4D5B0027FC81 /* SignUpRequest.swift */; };
 		74FA2F3F2B6D50AB0027FC81 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74FA2F3E2B6D50AB0027FC81 /* SignInRequest.swift */; };
@@ -262,6 +262,8 @@
 		74A67CB62B6C8845005F4520 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		74A67CB82B6C8870005F4520 /* RemoteAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteAPIManager.swift; sourceTree = "<group>"; };
 		74A77D2C2BA1CA3F00B15862 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		74A77FA52EAB739D003ACBCE /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Bold.ttf"; sourceTree = "<group>"; };
+		74A77FA62EAB739D003ACBCE /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PTSans-Regular.ttf"; sourceTree = "<group>"; };
 		74AD70082B80F9D600064056 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		74AD700A2B80FA3300064056 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		74AD700C2B80FB7D00064056 /* PhotoFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFile.swift; sourceTree = "<group>"; };
@@ -301,8 +303,6 @@
 		74EB13D52B94270F00BE41C1 /* ThreadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadCoordinator.swift; sourceTree = "<group>"; };
 		74EB13D72B942C3700BE41C1 /* LoadThreadByIdUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadThreadByIdUseCase.swift; sourceTree = "<group>"; };
 		74EBDD4E2B71BDDF0036F9E5 /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
-		74EBDD552B71E0460036F9E5 /* PTSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PTSans-Regular.ttf"; path = "../../../../../../../Downloads/PT_Sans/PTSans-Regular.ttf"; sourceTree = "<group>"; };
-		74EBDD572B71E04D0036F9E5 /* PTSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PTSans-Bold.ttf"; path = "../../../../../../../Downloads/PT_Sans/PTSans-Bold.ttf"; sourceTree = "<group>"; };
 		74F2C3892BA317FE008ACB16 /* AlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedFlowLayout.swift; sourceTree = "<group>"; };
 		74FA2F3A2B6D4D5B0027FC81 /* SignUpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRequest.swift; sourceTree = "<group>"; };
 		74FA2F3E2B6D50AB0027FC81 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
@@ -942,8 +942,8 @@
 		74EBDD502B71DEF60036F9E5 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				74EBDD552B71E0460036F9E5 /* PTSans-Regular.ttf */,
-				74EBDD572B71E04D0036F9E5 /* PTSans-Bold.ttf */,
+				74A77FA52EAB739D003ACBCE /* PTSans-Bold.ttf */,
+				74A77FA62EAB739D003ACBCE /* PTSans-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -1013,9 +1013,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74A77FA72EAB739D003ACBCE /* PTSans-Bold.ttf in Resources */,
+				74A77FA82EAB739D003ACBCE /* PTSans-Regular.ttf in Resources */,
 				747BF9A32AD0C0EC003AAC3E /* LaunchScreen.storyboard in Resources */,
-				74EBDD562B71E0460036F9E5 /* PTSans-Regular.ttf in Resources */,
-				74EBDD582B71E04D0036F9E5 /* PTSans-Bold.ttf in Resources */,
 				747BF9A02AD0C0EC003AAC3E /* Assets.xcassets in Resources */,
 				74059EDF2B355826000BD270 /* Localizable.xcstrings in Resources */,
 			);
